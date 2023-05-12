@@ -1,10 +1,16 @@
-import { createSignal } from 'solid-js'
+import { create } from 'domain'
+import { createEffect, createSignal } from 'solid-js'
 
 export default function Home() {
 	const [value, setValue] = createSignal('')
 	const [inputValue, setInputValue] = createSignal('')
 	let ref: HTMLTextAreaElement
 	let inputRef: HTMLInputElement
+
+	createEffect(() => {
+		console.log('value', value())
+		console.log('inputValue', inputValue())
+	})
 	return (
 		<main>
 			<section>
